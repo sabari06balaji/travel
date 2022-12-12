@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        body {
+            background-color: black;
+
+        }
+
+        .banner {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0)), url(assets/delhi.jpg);
+            background-size: cover;
+            background-position: center;
+            /* position: relative; */
+            /* background-image: linear-gradient( rgb(137, 115, 115) rgba(0,0,0,0)); */
+
+        }
+
+        .header {
+            width: 100%;
+            height: 60px;
+
+        }
+
+        .nav ul {
+            display: flex;
+            justify-content: space-evenly;
+            list-style-type: none;
+        }
+
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all;
+            transition: 4s;
+
+        }
+
+        .text {
+            width: 50%;
+            height: 40px;
+            padding-top: 120px;
+            padding-left: 220PX;
+
+        }
+
+        .text h1 {
+            color: white;
+            text-align: center;
+        }
+
+        .text p {
+            color: white;
+            text-align: center;
+
+
+
+        }
+
+        .page-content h1 {
+            color: white;
+            text-align: center;
+
+        }
+
+        .page-content p {
+            color: white;
+            text-align: center;
+        }
+
+        .state {
+            display: flex;
+            padding-top: 30px;
+            gap: 60px;
+            justify-content: center;
+
+        }
+
+        .punjab {
+            width: 30%;
+            height: 200px;
+            padding: 20px;
+            position: relative;
+
+            transition: 0.5s ease-in-out;
+
+        }
+
+        .punjab:hover {
+            transform: translateY(20px);
+        }
+
+        .punjab::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 176, 155, 0.5), rgba(150, 201, 61, 1));
+            z-index: 2;
+            transition: 0.5s all;
+            opacity: 0;
+        }
+
+        .punjab:hover:before {
+            opacity: 1;
+        }
+
+        .punjab img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        .punjab .info {
+            position: relative;
+            z-index: 3;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .punjab:hover .info {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .punjab .info h1 {
+            letter-spacing: 1px;
+            margin: 0;
+            color: black;
+        }
+
+        .punjab .info p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .info .btn {
+
+            text-decoration: none;
+            width: 20%;
+            height: 80px;
+            /* height: fit-content; */
+            background-color: antiquewhite;
+            color: black;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+
+
+        }
+
+        .punjab .info .btn:hover {
+            box-shadow: 1px 5px 10px rgb(0, 0, 0);
+        }
+
+        .delhi {
+            width: 30%;
+            height: 200px;
+            padding: 30px;
+            position: relative;
+
+            transition: 0.5s ease-in-out;
+
+        }
+
+        .delhi:hover {
+            transform: translateY(20px);
+        }
+
+        .delhi::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 176, 155, 0.5), rgba(150, 201, 61, 1));
+            z-index: 2;
+            transition: 0.5s all;
+            opacity: 0;
+        }
+
+        .delhi:hover::before {
+            opacity: 1;
+        }
+
+
+
+        .delhi img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+        }
+
+        .delhi .info2 {
+            position: relative;
+            z-index: 3;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(30px);
+
+        }
+
+        .delhi:hover .info2 {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .delhi .info2 h1 {
+            color: black;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .delhi .info2 p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .info2 .btn2 {
+
+            text-decoration: none;
+            width: 20%;
+            height: 80px;
+            /* height: fit-content; */
+            background-color: antiquewhite;
+            color: black;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+
+
+        }
+
+        .delhi .info2 .btn2:hover {
+            box-shadow: 1px 5px 10px rgb(0, 0, 0);
+        }
+
+        .state2 {
+            display: flex;
+            padding-top: 30px;
+            gap: 60px;
+            justify-content: center;
+
+        }
+
+        .tamil-nadu {
+            width: 30%;
+            height: 200px;
+            padding: 20px;
+            position: relative;
+
+            transition: 0.5s ease-in-out;
+
+        }
+
+        .tamil-nadu:hover {
+            transform: translateY(20px);
+        }
+
+        .tamil-nadu::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 176, 155, 0.5), rgba(150, 201, 61, 1));
+            z-index: 2;
+            transition: 0.5s all;
+            opacity: 0;
+        }
+
+        .tamil-nadu:hover:before {
+            opacity: 1;
+        }
+
+        .tamil-nadu img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        .tamil-nadu .info3 {
+            position: relative;
+            z-index: 3;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .tamil-nadu:hover .info3 {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .tamil-nadu .info3 h1 {
+            letter-spacing: 1px;
+            margin: 0;
+            color: black;
+        }
+
+        .tamil-nadu .info3 p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .info3 .btn3 {
+
+            text-decoration: none;
+            width: 20%;
+            height: 80px;
+            /* height: fit-content; */
+            background-color: antiquewhite;
+            color: black;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+
+
+        }
+
+        .tamil-nadu .info3 .btn3:hover {
+            box-shadow: 1px 5px 10px rgb(0, 0, 0);
+        }
+
+        .kerala {
+            width: 30%;
+            height: 200px;
+            padding: 30px;
+            position: relative;
+
+            transition: 0.5s ease-in-out;
+
+        }
+
+        .kerala:hover {
+            transform: translateY(20px);
+        }
+
+        .kerala::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 176, 155, 0.5), rgba(150, 201, 61, 1));
+            z-index: 2;
+            transition: 0.5s all;
+            opacity: 0;
+        }
+
+        .kerala:hover::before {
+            opacity: 1;
+        }
+
+
+
+        .kerala img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+        }
+
+        .kerala .info4 {
+            position: relative;
+            z-index: 3;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(30px);
+
+        }
+
+        .kerala:hover .info4 {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .kerala .info4 h1 {
+            color: black;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .kerala .info4 p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .info4 .btn4 {
+
+            text-decoration: none;
+            width: 20%;
+            height: 80px;
+            /* height: fit-content; */
+            background-color: antiquewhite;
+            color: black;
+            cursor: pointer;
+            transition: 0.4s ease-in-out;
+
+
+        }
+
+        .kerala .info4 .btn4:hover {
+            box-shadow: 1px 5px 10px rgb(0, 0, 0);
+        }
+
+        .page-content2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .page-content2 h1 {
+            color: white;
+            text-align: center;
+
+        }
+
+        .page-content2 p {
+            color: white;
+            text-align: center;
+        }
+
+        .best {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* .jammu {
+            width: 30%;
+            height: 300px;
+            padding: 20px;
+        }
+
+        .jammu img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .manali {
+            width: 30%;
+            height: 300px;
+            padding: 20px;
+        }
+
+        .manali img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .jammu h1 {
+            color: white;
+            text-align: center;
+        }
+        .jammu p
+        {
+            margin-top: 10px;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+        }
+        .manali h1 {
+            color: white;
+            text-align: center;
+        }
+        .manali p
+        {
+            margin-top: 10px;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+        }
+        .nepal {
+            width: 30%;
+            height: 300px;
+            padding: 20px;
+        }
+
+        .nepal img {
+            width: 100%;
+            height: 100%;
+        }
+        .nepal h1 {
+            color: white;
+            text-align: center;
+        }
+        .nepal p
+        {
+            margin-top: 10px;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+        } */
+        #slideshow {
+            position: relative;
+            width: 350px;
+            height: 400px;
+            margin: auto;
+        }
+
+        #slideshow div {
+            position: absolute;
+            top: 0;
+        }
+
+        #slideshow div h1 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+
+        }
+
+        #slideshow2 div h2 {
+            color: rgb(255, 255, 255);
+            text-align: center;
+
+        }
+
+        #slideshow2 {
+            position: relative;
+            width: 350px;
+            height: 400px;
+            margin: auto;
+        }
+
+        #slideshow2 div {
+            position: absolute;
+            top: 0;
+        }
+
+        #slideshow3 {
+            position: relative;
+            width: 350px;
+            height: 400px;
+            margin: auto;
+        }
+
+        #slideshow3 div {
+            position: absolute;
+            top: 0;
+        }
+
+        footer {
+            background: linear-gradient(  rgba(0, 0, 0, 0), rgb(0, 0, 0)), url(assets/siby-QXIBCvvA_jc-unsplash.jpg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0.6;
+            width: 100%;
+            height: 500px;
+        }
+        .f-content
+        {
+            display: flex;
+            justify-content: space-evenly;
+        }
+      
+        .fa-copyright 
+        {
+            width: 4%;
+            height: 20px;
+            color: white;
+         
+        }
+        .nav-footer ul
+        {
+          display: flex;
+          gap: 30px;
+          list-style-type:none ;
+        }
+        .nav-footer ul li a
+        {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="header">
+            <div class="nav">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Explore</a></li>
+                    <img src="assets/location.png" width="5%" height="50px">
+                    <li><a href="#state">Journal</a></li>
+                    <li><a href="#">home</a></li>
+
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="text">
+            <h1>THE GREAT OUTDOOR</h1><br>
+            <P>Wander often. Wonder always</P>
+        </div>
+
+    </div>
+    <div class="page-content">
+        <h1>Explore The India</h1>
+        <br>
+        <p>We seek to provide the most authentic content from athletes,adventurers,<br>
+            explore and travellers around the india.Our long-term mission is to educate,<br>
+            inspire and enable all peoples to experience & protect wilderness.<br>
+        </p>
+    </div>
+    <div class="state">
+        <div class="punjab">
+            <img src="assets/punjab.jpg">
+            <div class="info">
+                <h1>Punjab</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quae quibusdam ratione illum, deserunt
+                    ipsam eum temporibus alias,
+                    repellendus eveniet, deleniti facilis iusto cumque sunt. Dignissimos rerum sit sapiente quos.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+        </div>
+        <div class="delhi">
+            <img src="assets/delhi.jpg">
+            <div class="info2">
+                <h1>Delhi</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quae quibusdam ratione illum, deserunt
+                    ipsam eum temporibus alias,
+                    repellendus eveniet, deleniti facilis iusto cumque sunt. Dignissimos rerum sit sapiente quos.</p>
+                <a href="#" class="btn2">Read More</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="state2">
+        <div class="tamil-nadu">
+            <img src="assets/tn2.jpg">
+            <div class="info3">
+                <h1>Tamil Nadu</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quae quibusdam ratione illum, deserunt
+                    ipsam eum temporibus alias,
+                    repellendus eveniet, deleniti facilis iusto cumque sunt. Dignissimos rerum sit sapiente quos.</p>
+                <a href="#" class="btn3">Read More</a>
+            </div>
+
+        </div>
+        <div class="kerala">
+            <img src="assets/kr.jpg">
+            <div class="info4">
+                <h1>Kerala</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim quae quibusdam ratione illum, deserunt
+                    ipsam eum temporibus alias,
+                    repellendus eveniet, deleniti facilis iusto cumque sunt. Dignissimos rerum sit sapiente quos.</p>
+                <a href="#" class="btn4">Read More</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="page-content2">
+        <h1>The Journal</h1>
+        <p>Our favorite stories about public lands and opportunities for you to get<br>
+            involved in protecting your outdoor experience.
+        </p>
+    </div>
+    <div class="best">
+        <div id="slideshow">
+            <div>
+                <img src="assets/jsk.jpg" width="100%">
+            </div>
+            <div>
+                <h1>Land of High</h1>
+            </div>
+            <div>
+                <img src="assets/ladakh1.jpg" width="100%">
+            </div>
+            <div>
+                <h1>Passes</h1>
+            </div>
+            <div>
+                <img src="assets/ladakh2.jpg" width="100%">
+            </div>
+            <div>
+                <h1>Leh Ladakh</h1>
+            </div>
+        </div>
+        <div id="slideshow2">
+            <div>
+                <img src="assets/np4.jpg" width="100%" height="100%">
+            </div>
+            <div>
+                <h1>A brief vist to Nepal</h1>
+            </div>
+            <div>
+                <img src="assets/np2.jpg" width="100%" height="100%">
+            </div>
+            <div>
+                <h1>Started our insatiable</h1>
+            </div>
+            <div>
+                <img src="assets/nepal4.jpg" width="100%" height="100%">
+            </div>
+            <div>
+                <h2>Love for Asian Arts</h2>
+            </div>
+        </div>
+        <div id="slideshow3">
+            <div>
+                <img src="assets/rj1.jpg" width="100%">
+            </div>
+            <div>
+                <h1>Rajasthan is a land </h1>
+            </div>
+            <div>
+                <img src="assets/rj2.jpg" width="100%">
+            </div>
+            <div>
+                <h1>Of exotic beauty</h1>
+            </div>
+            <div>
+                <img src="assets/rj3.jpg" width="100%">
+            </div>
+            <div>
+                <h1>Rich culture and peaceful charm</h1>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+
+    </footer>
+    <div class="f-content">
+    <div class="footer-img">
+        <i class="fa-light fa-copyright">2022 THE GREAT OUTDOOR.All rights reserved</i>
+    </div>
+    <div class="nav-footer">
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Journal</a></li>
+            <li><a href="#">Booking</a></li>
+        </ul>
+    </div>
+</div>
+    <script>
+        $("#slideshow div:gt(0)").hide()
+        setInterval(function () {
+            $("#slideshow div:first").fadeIn().next().fadeOut().end().appendTo("#slideshow")
+        }, 2000)
+        $("#slideshow2 div:gt(0)").hide()
+        setInterval(function () {
+            $("#slideshow2 div:first").fadeIn().next().fadeOut().end().appendTo("#slideshow2")
+        }, 2000)
+        $("#slideshow3 div:gt(0)").hide()
+        setInterval(function () {
+            $("#slideshow3 div:first").fadeIn().next().fadeOut().end().appendTo("#slideshow3")
+        }, 2000)
+    </script>
+</body>
+
+</html>
